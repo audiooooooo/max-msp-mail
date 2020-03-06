@@ -15,7 +15,9 @@ try {
   dotenv_module.config();
 } catch (e) {
   maxApi.post(e, maxApi.POST_LEVELS.ERROR);
-  maxApi.post('Please send \'script npm install\' to the node.script object to download node modules', maxApi.POST_LEVELS.ERROR);
+  maxApi.post(
+      'Please send \'script npm install\' to the node.script object to download node modules',
+      maxApi.POST_LEVELS.ERROR);
   process.exit(1);
 }
 
@@ -36,6 +38,12 @@ const handlers = {
       to: to,
       subject: subject,
       text: text,
+      attachments: [
+        {
+          filename: 'example-mail.png',
+          path: 'max-mail-patch.png',
+        },
+      ],
     }, function(err, info) {
       if (err) {
         console.log(err);

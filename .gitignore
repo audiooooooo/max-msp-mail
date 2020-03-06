@@ -177,5 +177,5 @@ dist
 # TernJS port file
 .tern-port
 
-.env-template
+.env
 
